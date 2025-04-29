@@ -25,7 +25,7 @@ function App() {
   }
 
   return (
-    <main className='background-color: rgb(49, 247, 0) h-screen w-full flex flex-col items-center justify-center gap-4 '>
+    <main className='background-color: rgb(0, 0, 0) h-screen w-full flex flex-col items-center justify-center gap-4 '>
       <div className = "titulo"><img></img></div> 
         <div className = "caixaAPI" >
           <input 
