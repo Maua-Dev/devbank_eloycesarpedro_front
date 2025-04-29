@@ -19,6 +19,10 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+<<<<<<< HEAD
+  background-color: #ccf2ff
+=======
+>>>>>>> e66e91ead491b7352338223bf201d3edd8cd3790
 }
 
 h1 {

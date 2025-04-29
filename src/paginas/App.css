@@ -1,8 +1,21 @@
 #root {
+
+  background-color: rgb(204, 242, 255);
   margin: 0 auto;
   text-align: center;
 }
 
 .caixaAPI{
-  width: 100px;
+  width: 500px;
+  height: 50px;
+  font-size: large;
+  background-color: cadetblue;
+}
+
+.titulo{
+  color: white;
+  font-size: 72px ;
+  text-align: center;
+  
+  
 }
