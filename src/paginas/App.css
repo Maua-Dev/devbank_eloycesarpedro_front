@@ -1,4 +1,5 @@
 #root {
+<<<<<<< HEAD
   background-color: rgb(204, 242, 255);
   margin: 0 auto;
   text-align: center;
@@ -18,3 +19,8 @@
   
   
 }
+=======
+  margin: 0 auto;
+  text-align: center;
+}
+>>>>>>> e66e91ead491b7352338223bf201d3edd8cd3790
