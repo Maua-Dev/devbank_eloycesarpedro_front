@@ -26,16 +26,17 @@ function App() {
 
   return (
     <main className='background-color: rgb(255, 0, 0) h-screen w-full flex flex-col items-center justify-center gap-4 '>
-      <div> <img src={logo} width={460} height={100} alt=""/> </div> 
-        <div className = "caixaAPI" >
-          <input 
+      <div className= 'titulo'> <img src={logo} width={877} height={165} alt=""/> </div> 
+          <div>
+            <input 
+            className = "caixaAPI" 
             type = "string" 
             placeholder='Coloque o Endpoint da Sua API'
             //a função abaixo diz para o React que essa função deve ser chamada toda vez que o input mudar
             onChange={handleChange}
             />
             {mensagemErro}
-        </div>
+          </div>
     </main>
   )
 }

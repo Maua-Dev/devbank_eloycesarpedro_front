@@ -5,7 +5,7 @@
 
   color-scheme: light dark;
   color: rgb(255, 255, 255);
-  background-color: #242424;
+  background-color: #ccf2ff;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -20,7 +20,7 @@ body {
   min-width: 320px;
   min-height: 100vh;
 <<<<<<< HEAD
-  background-color: #ccf2ff
+  background-color: 
 =======
 >>>>>>> e66e91ead491b7352338223bf201d3edd8cd3790
 }
