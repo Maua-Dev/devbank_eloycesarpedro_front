@@ -8,7 +8,10 @@
   
 }
 
-
+#inputID::placeholder{
+  color : rgb(255, 255, 255);
+  opacity: 1;
+}
 
 .caixaAPI{
   width: 1288px;

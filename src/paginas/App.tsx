@@ -32,7 +32,7 @@ function App() {
   let mensagemErro;
   //esse desvio condicional serve para detectarmos se o usuário está inserindo uma URL de fato
   if (input.length > 0 && !validaURL() && enterPressed) {
-    mensagemErro = <span className='color: rgb(255, 0, 0)'>URL inválida</span>;
+    mensagemErro = <span style ={{ color: 'rgb(255, 0, 0)', fontSize: '35px'}}>URL inválida</span>;
   }
 
 
@@ -43,6 +43,7 @@ function App() {
             <input 
             className = "caixaAPI" 
             type = "string" 
+            id = "inputID"
             placeholder='Coloque o Endpoint da Sua API'
             //a função abaixo diz para o React que essa função deve ser chamada toda vez que o input mudar
             onChange={handleChange}
