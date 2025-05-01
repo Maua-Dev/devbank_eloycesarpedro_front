@@ -22,6 +22,7 @@ function App() {
         <button>R$10</button>
         <button>R$20</button>
       </section>
+      <section className="botao_pag3"></section>
       <section className="botao_pag3">
         <div id="linha2">
           <button id="segundalinha">R$50</button>
