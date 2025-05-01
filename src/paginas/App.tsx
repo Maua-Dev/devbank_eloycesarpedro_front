@@ -7,20 +7,29 @@ function App() {
   return (
     <main>
       <section className="titulop2">
-        <img src={logo} alt=""></img><h1>O que você deseja fazer?</h1>
+        <img src={logo} alt=""></img><h1></h1>
       </section>
-      <section className = "botao_pag2">
-      <button>
-        <h1>sacar</h1>
-      </button>
-      <button>
-        <h1>depositar</h1>
-      </button>
-      <button>
-        <h1>trasações</h1>
-      </button>
+      <section className="displaypg3">
+        <div className="saldo">
+          <h1 className="saldo">Saldo atual: R$</h1>
+        </div>
+        <h1>Quantidade Depositada: R$</h1>
       </section>
-      <section></section>
+      <section className="botao_pag3">
+        <h2>Selecione as cédulas e a quantidade que você deseja</h2>
+        <button>R$2</button>
+        <button>R$5</button>
+        <button>R$10</button>
+        <button>R$20</button>
+      </section>
+      <section className="botao_pag3">
+        <div id="linha2">
+          <button id="segundalinha">R$50</button>
+          <button id="segundalinha">R$100</button>
+          <button id="segundalinha">R$200</button>
+        </div>
+      </section>
+
     </main>
   )
 }

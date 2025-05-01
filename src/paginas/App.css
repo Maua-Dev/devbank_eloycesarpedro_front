@@ -56,6 +56,12 @@
   border-color: white;
 }
 
+.botao_pag2 h2{
+  color: black;
+  font-size: x-large;
+  font-weight: 500;
+}
+
 .titulop2 {
   background-color: rgb(101, 163, 235);
   display: flex;
@@ -70,4 +76,91 @@
   margin-right: 10px;
   margin-left: 10px;
   margin-top: 5px;
+}
+
+.displaypg3 {
+  background-color: rgb(141, 190, 236);
+  height: 90px;
+  width:  1200px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  justify-self: center;
+  border-radius: 12px;
+}
+
+.displaypg3 h1 {
+  color: rgb(69, 80, 236);
+  font-size: x-large;
+  display: flex
+}
+
+.saldo {
+  width: 500px;
+  height: full;
+  background-color: rgb(95, 156, 226);
+  display: flex;
+  padding-bottom: 3px;
+  padding-top: 3px;
+  align-items: center;
+  margin-right: 10px;
+  margin-left: 5px;
+  border-radius: 12px;
+}
+
+.saldo h1 {
+  color: white;
+  font-size: x-large;
+}
+
+.botao_pag3{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.botao_pag3 button {
+  background-color: rgb(103, 207, 255);
+  margin-left: 50px;
+  margin-right: 50px;
+  width: 600px;
+  height: 200px;
+  border-color: white;
+  border-width: 2px;
+  border-radius: 12px;
+  position: relative;
+  font-size: xxx-large;
+}
+
+.botao_pag3 button:hover{
+  background-color: rgb(238, 63, 63);
+  align-items: center;
+  justify-self: center;
+  justify-content: center;
+  position: static;
+  border-color: white;
+}
+
+.botao_pag3 h2{
+  color: black;
+  font-size: xx-large;
+  font-weight: 500;
+  margin-left: 20px;
+}
+
+#segundalinha{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 295px;
+  margin-left: 40px;
+  margin-right: 50px;
+}
+
+#linha2{
+  align-items: right;
+  justify-items: right;
+  display: flex;
+  margin-left: 700px;
 }
