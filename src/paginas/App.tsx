@@ -43,7 +43,10 @@ function App() {
         <h1>quantidade: </h1><button>+</button><h1>x</h1><button>-</button>
         </div>
         </section>
-
+      <section className="dv">
+        <button>Voltar</button>
+        <button>Depositar</button>
+      </section>
     </main>
   )
 }

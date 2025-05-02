@@ -197,3 +197,29 @@
   justify-items: left;
   align-items: left;
 }
+
+.dv{
+  display: flex;
+  margin-left: 10px;
+  margin-right: 10px;
+  justify-items: left;
+  height: 50;
+  margin-bottom: 100px;
+}
+
+.dv button{
+  background-color: rgb(84, 84, 204);
+  height: 60px;
+  width: 200px;
+  margin-left: 20px;
+  font-size: xx-large;
+  justify-content: center;
+  align-content: center;
+  display: flex;
+  padding-bottom: 50px;
+}
+
+.dv button:hover{
+  background-color: rgb(216, 82, 82);
+  border-color: white;
+}
