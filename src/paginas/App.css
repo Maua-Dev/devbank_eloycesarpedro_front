@@ -117,7 +117,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .botao_pag3 button {
@@ -163,4 +163,37 @@
   justify-items: right;
   display: flex;
   margin-left: 700px;
+}
+
+.quantidade{
+  display: flex;
+  justify-content: right;
+  align-items: center; 
+  margin-right: 100px;
+  gap: 20px;
+}
+
+.quantidade h1{
+  color: black;
+  font-size: x-large;
+  margin-right: 5px;
+  margin-left: 10px;
+  justify-items: center;
+  align-items: center;
+}
+
+.quantidade button{
+  color: white;
+  font-size: x-large;
+  width: 5px;
+  height: 5px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  background-color: rgb(66, 66, 168);
+}
+
+#quantidadebaixo{
+  justify-items: left;
+  align-items: left;
 }

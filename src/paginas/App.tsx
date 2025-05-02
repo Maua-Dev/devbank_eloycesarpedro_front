@@ -22,6 +22,12 @@ function App() {
         <button>R$10</button>
         <button>R$20</button>
       </section>
+      <section className="quantidade">
+        <h1>quantidade: </h1><button>+</button><h1>x</h1><button>-</button>
+        <h1>quantidade: </h1><button>+</button><h1>x</h1><button>-</button>
+        <h1>quantidade: </h1><button>+</button><h1>x</h1><button>-</button>
+        <h1>quantidade: </h1><button>+</button><h1>x</h1><button>-</button>
+      </section>
       <section className="botao_pag3"></section>
       <section className="botao_pag3">
         <div id="linha2">
@@ -30,6 +36,13 @@ function App() {
           <button id="segundalinha">R$200</button>
         </div>
       </section>
+      <section>
+        <div className="quantidade" id="quantidadebaixo">
+        <h1>quantidade: </h1><button>+</button><h1>x</h1><button>-</button>
+        <h1>quantidade: </h1><button>+</button><h1>x</h1><button>-</button>
+        <h1>quantidade: </h1><button>+</button><h1>x</h1><button>-</button>
+        </div>
+        </section>
 
     </main>
   )
