@@ -13,7 +13,7 @@ function App() {
         <div className="saldo">
           <h1 className="saldo">Saldo atual: R$</h1>
         </div>
-        <h1>Quantidade Depositada: R$</h1>
+        <h1>Quantidade Retirada: R$</h1>
       </section>
       <section className="botao_pag3">
         <h2>Selecione as cédulas e a quantidade que você deseja</h2>
@@ -45,7 +45,7 @@ function App() {
         </section>
       <section className="dv">
         <button>Voltar</button>
-        <button>Depositar</button>
+        <button>Retirar</button>
       </section>
     </main>
   )
