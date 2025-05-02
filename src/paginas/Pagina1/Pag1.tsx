@@ -21,6 +21,7 @@ function Pag1() {
 
   //validação da URL da API
   function validaURL(){
+    KeyPressed
     return input.includes("https://");
   }
   
@@ -31,19 +32,17 @@ function Pag1() {
     }
   }
 
-  //declaração da variável mensagemErro
-  let mensagemErro;
-  //esse desvio condicional serve para detectarmos se o usuário está inserindo uma URL de fato
-  if (input.length > 0 && !validaURL() && enterPressed) {
-    mensagemErro = <span style ={{ color: 'rgb(255, 0, 0)', fontSize: '35px'}}>URL inválida</span>;
-  }
+  // //declaração da variável mensagemErro
+  // let mensagemErro;
+  // //esse desvio condicional serve para detectarmos se o usuário está inserindo uma URL de fato
+  // if (input.length > 0 && !validaURL() && enterPressed) {
+  //   mensagemErro = <span style ={{ color: 'rgb(255, 0, 0)', fontSize: '35px'}}>URL inválida</span>;
+  // }
   
   
   //Fazendo a rota get:
   async function getDados(api:string): Promise<entrada_API> {
     const response = await fetch(api)
-
-    KeyPressed
     
     return (await response.json()) as entrada_API;
   }
@@ -53,22 +52,25 @@ function Pag1() {
       <div className= 'titulo'> <img src={logo} width={877} height={165} alt=""/> </div> 
           <div>
             <input 
-            className = "caixaAPI" 
-            type = "string" 
-            id = "inputID"
-            placeholder='Coloque o Endpoint da Sua API'
-            //a função abaixo diz para o React que essa função deve ser chamada toda vez que o input mudar
-            onChange={handleChange}
-            // onKeyDown = {KeyPressed}
-            onKeyDown={async () => {
-              const res = await getDados(input);
-              if(enterPressed){
+              className = "caixaAPI" 
+              type = "string" 
+              id = "inputID"
+              placeholder='Coloque o Endpoint da Sua API'
+              //a função abaixo diz para o React que essa função deve ser chamada toda vez que o input mudar
+              onChange={handleChange}
+              // onKeyDown = {KeyPressed}
+              onKeyDown={async () => {
+                const res = await getDados(input);
                 setResponse (res);
-              }
             }}
-            />
-            {mensagemErro}
+            />                             
           </div>
+          {(!response || !validaURL()) &&(
+              <span style ={{ color: 'rgb(255, 0, 0)', fontSize: '35px'}}>URL inválida</span>
+          )}
+          {/* {response &&(
+            
+          )} */}
     </main>
   )
 }
