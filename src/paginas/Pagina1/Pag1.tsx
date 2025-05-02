@@ -2,6 +2,7 @@ import './Pag1.css';
 import React, {useEffect, useState } from 'react';
 import logo from "/imagens/logo.png";
 
+
 type entrada_API = {
   name: string;
   agency: string;

@@ -1,9 +1,9 @@
 import React, {useEffect, useState } from 'react';
-import { BrowserRouter, Routes, Route, Link} from 'react-router-dom'; 
-import Pag1 from './Paginas/Pagina1/Pag1';
-import Pag2 from './Paginas/Pagina2/Pag2';
-import Pag3 from './Paginas/Pagina3/Pag3';
-import Pag4 from './Paginas/Pagina4/Pag4';
+import { BrowserRouter, Routes, Route} from 'react-router-dom'; 
+import Pag1 from './paginas/Pagina1/Pag1';
+import Pag2 from './paginas/Pagina2/Pag2';
+import Pag3 from './paginas/Pagina3/Pag3';
+import Pag4 from './paginas/Pagina4/Pag4';
 
 
 export default function App() {
