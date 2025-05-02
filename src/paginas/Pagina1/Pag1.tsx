@@ -1,10 +1,8 @@
-import './App.css';
+import './Pag1.css';
 import React, {useEffect, useState } from 'react';
 import logo from "/imagens/logo.png";
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import { JSX } from 'react/jsx-runtime';
 
-function App() {
+function Pag1() {
   //Definindo o tipo inicial do valor inserido na caixa de texto
   const[input, setInput] = useState<string>('');
   const [enterPressed, setEnterPressed] = useState<0 | 1>(0);
@@ -56,4 +54,4 @@ function App() {
   
 
 
-export default App
+export default Pag1
