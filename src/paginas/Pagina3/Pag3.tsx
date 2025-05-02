@@ -1,10 +1,12 @@
-import './Pag3.css';
+import './Pag33.css';
 import React, { useEffect, useState } from 'react';
 import logo from "/imagens/logo.png";
+import { BrowserRouter, Routes, Route, Link} from 'react-router-dom'; 
 
 function Pag3() {
   return (
     <main>
+      <Link to="/telainicial" className="deposito"></Link>
       <section className="titulop2">
         <img src={logo} alt=""></img><h1></h1>
       </section>
@@ -49,7 +51,6 @@ function Pag3() {
     </main>
   )
 }
-  
 
 
 export default Pag3

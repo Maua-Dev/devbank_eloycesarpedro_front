@@ -1,6 +1,7 @@
-import './Pag4.css';
+import './Pag44.css';
 import React, { useEffect, useState } from 'react';
 import logo from "/imagens/logo.png";
+import {Link} from 'react-router-dom'; 
 
 function Pag4() {
   return (
@@ -49,7 +50,7 @@ function Pag4() {
     </main>
   )
 }
-  
+<Link to="/telainicial" ClassName="deposito"></Link>
 
 
 export default Pag4
