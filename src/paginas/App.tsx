@@ -19,22 +19,21 @@ function App() {
     return input.includes("https://");
   }
   
-  //
-  const KeyPressed = (e: React.KeyboardEvent<HTMLInputElement>) => {
+  //Função para detectar se a tecla enter foi pressionada ou não
+  function KeyPressed (e: React.KeyboardEvent<HTMLInputElement>) {
     if(e.key == 'Enter'){
       setEnterPressed(1);
     }else{
       setEnterPressed(0);
     }
   }
-
   //declaração da variável mensagemErro
   let mensagemErro;
   //esse desvio condicional serve para detectarmos se o usuário está inserindo uma URL de fato
   if (input.length > 0 && !validaURL() && enterPressed) {
     mensagemErro = <span style ={{ color: 'rgb(255, 0, 0)', fontSize: '35px'}}>URL inválida</span>;
   }
-
+  //
 
   return (
     <main className='background-color: rgb(255, 0, 0) h-screen w-full flex flex-col items-center justify-center gap-4 '>
