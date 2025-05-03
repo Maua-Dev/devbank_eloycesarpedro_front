@@ -13,12 +13,14 @@ type entrada_API = {
 function Pag1() {
   const[input, setInput] = useState<string>('');
   const [response, setResponse] = useState<entrada_API>();
+  const [erro, setErro] = useState<boolean>(false);
   const navigate = useNavigate();
 
 
   //Essa função armazena o valor inserido no input no parâmetro "e"
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     setInput(e.target.value);
+    setErro(false);
   }
 
   //validação da URL da API
@@ -35,7 +37,7 @@ function Pag1() {
 
   useEffect(() => {
     if (response && validaURL()) {
-      navigate('/telainicial');
+      navigate('/home');
     }
   }, [response]);
 
@@ -53,14 +55,25 @@ function Pag1() {
               onChange={handleChange}
               onKeyDown={async (e) => {
                 if (e.key === 'Enter') {
-                  const res = await getDados(input);
-                  setResponse(res);
+                  try{
+                    const res = await getDados(input);
+                    setResponse(res);
+                    const urlValida = validaURL();
+                  
+                    if ((!res || !urlValida) && input.length>0){
+                      setErro(true)
+                    }else{
+                      setErro(false)
+                    }
+                  } catch (err) {
+                    setErro(true);
+                  }
                 }
               }}
             />                             
           </div>
-          {((!response || !validaURL()) && input.length>0) &&(
-              <span style ={{ color: 'rgb(255, 0, 0)', fontSize: '35px'}}>URL inválida</span>
+          {(erro && input.length> 0)&&(
+              <span style ={{ color: 'rgb(255, 0, 0)', fontSize: '35px', flex:1/2}}>URL inválida</span>
           )}
     </main>
   )
