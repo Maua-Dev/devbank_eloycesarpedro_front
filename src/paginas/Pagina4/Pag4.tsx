@@ -74,7 +74,7 @@ function Pag4() {
     </main>
   );
 }
-<Link to="/telainicial" ClassName="deposito"></Link>
+
 
 
 export default Pag4
