@@ -2,7 +2,6 @@ import './Pag11.css';
 import React, {useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom'; 
 import logo from "/imagens/logo.png";
-import API from '../../dadosAPI';
 
 type entrada_API = {
   name: string;
@@ -40,10 +39,6 @@ type entrada_API = {
     }
   }, [response]) ;  
 
-  
-
-
-
   return (
     <main id="margem">
       <div className= 'titulo'> <img src={logo} width={877} height={165} alt=""/> </div> 
@@ -70,5 +65,4 @@ type entrada_API = {
   )
 }
 
-export default Pag1
-
+export default Pag1;

@@ -3,18 +3,19 @@
   width: 100%;
   align-items: center;
   margin-left: 200px;
+  margin-bottom: 100px;
 }
 
-#inputID::placeholder{
-  color : rgb(255, 255, 255);
+#inputID::placeholder {
+  color: rgb(255, 255, 255);
   opacity: 1;
 }
 
-.caixaAPI{
+.caixaAPI {
   width: 1288px;
   height: 82px;
   font-size: 40px;
-  background-color: #0073E6;
+  background-color: #0073e6;
   margin-top: 20px;
   opacity: 30%;
   align-items: center;
@@ -23,10 +24,8 @@
   border-radius: 10px;
 }
 
-.titulo{
+.titulo {
   margin-bottom: 100px;
   justify-self: center;
   padding-top: 100px;
 }
-
-
