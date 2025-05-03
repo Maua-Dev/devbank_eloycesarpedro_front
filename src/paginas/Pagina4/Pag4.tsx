@@ -7,7 +7,8 @@ function Pag4() {
   return (
     <main>
       <section className="titulop2">
-        <img src={logo} alt=""></img><h1></h1>
+        <img src={logo} alt=""></img>
+        <h1></h1>
       </section>
       <section className="displaypg3">
         <div className="saldo">
@@ -23,10 +24,22 @@ function Pag4() {
         <button>R$20</button>
       </section>
       <section className="quantidade">
-        <h1>quantidade: </h1><button>+</button><h1>x</h1><button>-</button>
-        <h1>quantidade: </h1><button>+</button><h1>x</h1><button>-</button>
-        <h1>quantidade: </h1><button>+</button><h1>x</h1><button>-</button>
-        <h1>quantidade: </h1><button>+</button><h1>x</h1><button>-</button>
+        <h1>quantidade: </h1>
+        <button>+</button>
+        <h1>x</h1>
+        <button>-</button>
+        <h1>quantidade: </h1>
+        <button>+</button>
+        <h1>x</h1>
+        <button>-</button>
+        <h1>quantidade: </h1>
+        <button>+</button>
+        <h1>x</h1>
+        <button>-</button>
+        <h1>quantidade: </h1>
+        <button>+</button>
+        <h1>x</h1>
+        <button>-</button>
       </section>
       <section className="botao_pag3"></section>
       <section className="botao_pag3">
@@ -38,17 +51,28 @@ function Pag4() {
       </section>
       <section>
         <div className="quantidade" id="quantidadebaixo">
-        <h1>quantidade: </h1><button>+</button><h1>x</h1><button>-</button>
-        <h1>quantidade: </h1><button>+</button><h1>x</h1><button>-</button>
-        <h1>quantidade: </h1><button>+</button><h1>x</h1><button>-</button>
+          <h1>quantidade: </h1>
+          <button>+</button>
+          <h1>x</h1>
+          <button>-</button>
+          <h1>quantidade: </h1>
+          <button>+</button>
+          <h1>x</h1>
+          <button>-</button>
+          <h1>quantidade: </h1>
+          <button>+</button>
+          <h1>x</h1>
+          <button>-</button>
         </div>
-        </section>
+      </section>
       <section className="dv">
-        <button>Voltar</button>
+        <Link to="/telainicial">
+          <button>Voltar</button>
+        </Link>
         <button>Retirar</button>
       </section>
     </main>
-  )
+  );
 }
 <Link to="/telainicial" ClassName="deposito"></Link>
 

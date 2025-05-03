@@ -3,7 +3,6 @@ import React, {useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom'; 
 import logo from "/imagens/logo.png";
 
-
 type entrada_API = {
   name: string;
   agency: string;
@@ -42,7 +41,7 @@ function Pag1() {
 
 
   return (
-    <main className='h-screen w-full flex flex-col items-center justify-center gap-4 '>
+    <main id="margem">
       <div className= 'titulo'> <img src={logo} width={877} height={165} alt=""/> </div> 
           <div>
             <input 

@@ -1,26 +1,41 @@
-import './Pag22.css';
-import React, { useEffect, useState } from 'react';
+import "./Pag22.css";
+import React, { useEffect, useState } from "react";
 import logo from "/imagens/logo.png";
-import {Link} from 'react-router-dom';  
+import { Link } from "react-router-dom";
 
 function Pag2() {
   return (
     <main>
-      
       <section className="titulop2">
         <img src={logo} alt="Logo do sistema" />
         <h1>O que você deseja fazer?</h1>
       </section>
-
-      <nav> 
+      <nav>
         <ul>
-          <li><Link to="/deposito" className="deposito">Depósito</Link></li>
-          <li><Link to="/saque" className="saque">Saque</Link></li>
-          <li><Link to="/transacoes" className="transacoes">Transações</Link></li>
+          <section className="botao_pag2">
+            <Link to="/deposito">
+              <button>
+                <h1>Depósito</h1>
+              </button>
+            </Link>
+            <Link to="/saque">
+              <button>
+                <h1>Saque</h1>
+              </button>
+            </Link>
+            <Link to="/transacoes">
+              <button>
+                <h1>Transações</h1>
+              </button>
+            </Link>
+          </section>
         </ul>
       </nav>
+      <Link to="/">
+        <button>Voltar</button>
+      </Link>
     </main>
   );
 }
 
-export default Pag2
+export default Pag2;
