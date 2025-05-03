@@ -27,19 +27,19 @@ function Pag3() {
       <section className="quantidade">
         <h1>quantidade: </h1>
         <button>+</button>
-        <h1>x</h1>
+        <h1>n2</h1>
         <button>-</button>
         <h1>quantidade: </h1>
         <button>+</button>
-        <h1>x</h1>
+        <h1>n5</h1>
         <button>-</button>
         <h1>quantidade: </h1>
         <button>+</button>
-        <h1>x</h1>
+        <h1>n10</h1>
         <button>-</button>
         <h1>quantidade: </h1>
         <button>+</button>
-        <h1>x</h1>
+        <h1>n20</h1>
         <button>-</button>
       </section>
       <section className="botao_pag3"></section>
@@ -54,23 +54,21 @@ function Pag3() {
         <div className="quantidade" id="quantidadebaixo">
           <h1>quantidade: </h1>
           <button>+</button>
-          <h1>x</h1>
+          <h1>n50</h1>
           <button>-</button>
           <h1>quantidade: </h1>
           <button>+</button>
-          <h1>x</h1>
+          <h1>n100</h1>
           <button>-</button>
           <h1>quantidade: </h1>
           <button>+</button>
-          <h1>x</h1>
+          <h1>n200</h1>
           <button>-</button>
         </div>
       </section>
       <section className="dv">
         <Link to="/telainicial">
-          <button>
-            Voltar
-          </button>
+          <button>Voltar</button>
         </Link>
         <button>Depositar</button>
       </section>

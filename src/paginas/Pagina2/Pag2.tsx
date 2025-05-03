@@ -2,6 +2,25 @@ import "./Pag22.css";
 import React, { useEffect, useState } from "react";
 import logo from "/imagens/logo.png";
 import { Link } from "react-router-dom";
+import axios from 'axios';
+import { useUser } from '/src/dadosAPI';
+
+
+//teste
+const Home = () => {
+  const { user } = useUser();
+
+  return (
+    <div>
+      <h2>Bem-vindo, {user?.name}</h2>
+      <p>Agência: {user?.agency}</p>
+      <p>Conta: {user?.account}</p>
+      <p>Saldo: R$ {user?.current_balance}</p>
+    </div>
+  );
+};
+
+//teste
 
 function Pag2() {
   return (
@@ -30,9 +49,9 @@ function Pag2() {
             </Link>
           </section>
         </ul>
-      </nav>
+      </nav> 
       <Link to="/">
-        <button>Voltar</button>
+        <button id="voltar">Voltar</button>
       </Link>
     </main>
   );

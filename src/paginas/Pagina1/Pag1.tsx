@@ -2,6 +2,7 @@ import './Pag11.css';
 import React, {useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom'; 
 import logo from "/imagens/logo.png";
+import API from '../../dadosAPI';
 
 type entrada_API = {
   name: string;
@@ -10,7 +11,7 @@ type entrada_API = {
   current_balance: number;
 };
 
-function Pag1() {
+ function Pag1() {
   const[input, setInput] = useState<string>('');
   const [response, setResponse] = useState<entrada_API>();
   const [erro, setErro] = useState<boolean>(false);
@@ -39,7 +40,10 @@ function Pag1() {
     if (response && validaURL()) {
       navigate('/home');
     }
-  }, [response]);
+  }, [response]) ;  
+
+  
+
 
 
   return (
