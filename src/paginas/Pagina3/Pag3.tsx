@@ -35,15 +35,6 @@ function Pag3() {
     200: 0,
   });
   
-  //async function numeroNotas_json(): Promise<>
-
-  useEffect(()=>{
-    if(click){
-
-    }
-  })
-
-
   async function getDados(api: string): Promise<entrada_API> {
     const response = await fetch(api);
     return (await response.json()) as entrada_API;
@@ -56,6 +47,7 @@ function Pag3() {
 
 
 function handleClick_mais(nota: keyof numero_notas){
+  setClick(0);
   setNumeroNotas((prev) => ({
     ...prev,
     [nota]: prev[nota] + 1,
@@ -63,12 +55,17 @@ function handleClick_mais(nota: keyof numero_notas){
 }
 
 function handleClick_menos(nota: keyof numero_notas){
+  setClick(0);
   setNumeroNotas((prev) => ({
     ...prev,
-    [nota]: prev[nota] - 1,
+    [nota]: Math.max(0, prev[nota] - 1),
   }));
 }
 
+function calcula_notas(){
+  let total = 2*numeroNotas[2]+5*numeroNotas[5]+10*numeroNotas[10]+20*numeroNotas[20]+50*numeroNotas[50]+100*numeroNotas[100]+200*numeroNotas[200]
+  return total;
+}
   return (
     <main>
       <Link to="/telainicial" className="deposito"></Link>
@@ -86,7 +83,7 @@ function handleClick_menos(nota: keyof numero_notas){
         <div className="saldo">
           <h1 className="saldo">Saldo atual: R$ {userData?.current_balance}</h1>
         </div>
-        <h1>Quantidade Depositada: R$</h1>
+        <h1>Quantidade Depositada: R$ {click && calcula_notas()}</h1>
       </section>
       <section className="botao_pag3">
         <h2>Selecione as cédulas e a quantidade que você deseja</h2>
@@ -141,7 +138,7 @@ function handleClick_menos(nota: keyof numero_notas){
         <Link to="/telainicial">
           <button>Voltar</button>
         </Link>
-        <button onClick={() => console.log("Oi")}>Depositar</button>
+        <button onClick={() =>setClick(1)}>Depositar</button>
       </section>
     </main>
   );
