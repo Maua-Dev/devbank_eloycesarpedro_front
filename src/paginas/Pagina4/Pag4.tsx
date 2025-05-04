@@ -76,5 +76,4 @@ function Pag4() {
 }
 
 
-
 export default Pag4

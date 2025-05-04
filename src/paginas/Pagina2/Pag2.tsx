@@ -2,7 +2,7 @@ import "./Pag22.css";
 import React, { useEffect, useState } from "react";
 import logo from "/imagens/logo.png";
 import { Link } from "react-router-dom";
-
+import { fetchUserData, getApiUrl, setApiUrl, apiUrl } from "../../dadosAPI";
 
 function Pag2() {
   return (
@@ -31,7 +31,7 @@ function Pag2() {
             </Link>
           </section>
         </ul>
-      </nav> 
+      </nav>
       <Link to="/">
         <button id="voltar">Voltar</button>
       </Link>
