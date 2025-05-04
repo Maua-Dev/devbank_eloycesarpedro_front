@@ -2,18 +2,89 @@ import './Pag33.css';
 import React, { useEffect, useState } from 'react';
 import logo from "/imagens/logo.png";
 import { BrowserRouter, Routes, Route, Link} from 'react-router-dom'; 
+import { API } from "../Pagina2/Pag2";
+
+type entrada_API = {
+  name: string;
+  agency: string;
+  account: string;
+  current_balance: number;
+};
+
+type numero_notas = {
+  2: number;
+  5: number;
+  10: number;
+  20: number;
+  50: number;
+  100: number;
+  200: number;
+}
+
 
 function Pag3() {
+  const[userData, setUserData] = useState<entrada_API | null>(null);
+  const[click, setClick] = useState(0);
+  const [numeroNotas, setNumeroNotas] = useState<numero_notas>({
+    2: 0,
+    5: 0,
+    10: 0,
+    20: 0,
+    50: 0,
+    100: 0,
+    200: 0,
+  });
+  
+  //async function numeroNotas_json(): Promise<>
+
+  useEffect(()=>{
+    if(click){
+
+    }
+  })
+
+
+  async function getDados(api: string): Promise<entrada_API> {
+    const response = await fetch(api);
+    return (await response.json()) as entrada_API;
+  }
+
+  useEffect(() => {
+    const apiUrl = API;
+    getDados(apiUrl).then((data) => setUserData(data));
+  }, []);
+
+
+function handleClick_mais(nota: keyof numero_notas){
+  setNumeroNotas((prev) => ({
+    ...prev,
+    [nota]: prev[nota] + 1,
+  }));
+}
+
+function handleClick_menos(nota: keyof numero_notas){
+  setNumeroNotas((prev) => ({
+    ...prev,
+    [nota]: prev[nota] - 1,
+  }));
+}
+
   return (
     <main>
       <Link to="/telainicial" className="deposito"></Link>
       <section className="titulop2">
         <img src={logo} alt=""></img>
-        <h1></h1>
+        <div id="c">
+          <section id="a">
+            <h2>Nome: {userData?.name} </h2>
+            <h2>Agência: {userData?.agency} </h2>
+            <h2>Conta: {userData?.account} </h2>
+          </section>
+        </div>
       </section>
       <section className="displaypg3">
         <div className="saldo">
-          <h1 className="saldo">Saldo atual: R$</h1>
+          <h1 className="saldo">Saldo atual: R$ {userData?.current_balance}</h1>
         </div>
         <h1>Quantidade Depositada: R$</h1>
       </section>
@@ -26,21 +97,21 @@ function Pag3() {
       </section>
       <section className="quantidade">
         <h1>quantidade: </h1>
-        <button>+</button>
-        <h1>n2</h1>
-        <button>-</button>
+        <button onClick={() => handleClick_mais(2)}>+</button>
+        <h1>{numeroNotas[2]}</h1>
+        <button onClick={() => handleClick_menos(2)}>-</button>
         <h1>quantidade: </h1>
-        <button>+</button>
-        <h1>n5</h1>
-        <button>-</button>
+        <button onClick={() => handleClick_mais(5)}>+</button>
+        <h1>{numeroNotas[5]}</h1>
+        <button onClick={() => handleClick_menos(5)}>-</button>
         <h1>quantidade: </h1>
-        <button>+</button>
-        <h1>n10</h1>
-        <button>-</button>
+        <button onClick={() => handleClick_mais(10)}>+</button>
+        <h1>{numeroNotas[10]}</h1>
+        <button onClick={() => handleClick_menos(10)}>-</button>
         <h1>quantidade: </h1>
-        <button>+</button>
-        <h1>n20</h1>
-        <button>-</button>
+        <button onClick={() => handleClick_mais(20)}>+</button>
+        <h1>{numeroNotas[20]}</h1>
+        <button onClick={() => handleClick_menos(20)}>-</button>
       </section>
       <section className="botao_pag3"></section>
       <section className="botao_pag3">
@@ -53,24 +124,24 @@ function Pag3() {
       <section>
         <div className="quantidade" id="quantidadebaixo">
           <h1>quantidade: </h1>
-          <button>+</button>
-          <h1>n50</h1>
-          <button>-</button>
+          <button onClick={() => handleClick_mais(50)}>+</button>
+          <h1>{numeroNotas[50]}</h1>
+          <button onClick={() => handleClick_menos(50)}>-</button>
           <h1>quantidade: </h1>
-          <button>+</button>
-          <h1>n100</h1>
-          <button>-</button>
+          <button onClick={() => handleClick_mais(100)}>+</button>
+          <h1>{numeroNotas[100]}</h1>
+          <button onClick={() => handleClick_menos(100)}>-</button>
           <h1>quantidade: </h1>
-          <button>+</button>
-          <h1>n200</h1>
-          <button>-</button>
+          <button onClick={() => handleClick_mais(200)}>+</button>
+          <h1>{numeroNotas[200]}</h1>
+          <button onClick={() => handleClick_menos(200)}>-</button>
         </div>
       </section>
       <section className="dv">
         <Link to="/telainicial">
           <button>Voltar</button>
         </Link>
-        <button>Depositar</button>
+        <button onClick={() => console.log("Oi")}>Depositar</button>
       </section>
     </main>
   );

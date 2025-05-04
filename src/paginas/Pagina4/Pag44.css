@@ -149,3 +149,23 @@
   border-color: white;
 }
 
+#a{
+  justify-content: right;
+  align-items: end;
+  margin-left: 370px;
+  background-color: white;
+  margin-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+#a h2{
+  color: rgba(0, 17, 255, 0.589);
+  font-size: medium;
+}
+
+#c{
+  margin-left: 600px;
+}

@@ -16,7 +16,7 @@ function Pag1() {
   const [response, setResponse] = useState<entrada_API>();
   const [erro, setErro] = useState<boolean>(false);
   const navigate = useNavigate();
-
+  
   //Essa função armazena o valor inserido no input no parâmetro "e"
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     setInput(e.target.value);
@@ -27,7 +27,6 @@ function Pag1() {
   function validaURL(): boolean {
     return input.includes("https://");
   }
-
   //Fazendo a rota get:
   async function getDados(api: string): Promise<entrada_API> {
     const response = await fetch(api);
@@ -55,7 +54,7 @@ function Pag1() {
           className="caixaAPI"
           type="string"
           id="inputID"
-          placeholder="Coloque o Endpoint da Sua API"
+          placeholder="Coloque o Endpoint da Sua API (aperte 'enter' para validar)"
           //a função abaixo diz para o React que essa função deve ser chamada toda vez que o input mudar
           onChange={handleChange}
           onKeyDown={async (e) => {
