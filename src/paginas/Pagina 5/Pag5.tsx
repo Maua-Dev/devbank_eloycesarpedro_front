@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import logo from "/imagens/logo.png";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import { API } from "../Pagina2/Pag2";
+import axios from "axios";
 
 type entrada_API = {
   name: string;
@@ -12,42 +13,43 @@ type entrada_API = {
 };
 
 type history = {
-  type: string
-  value: number
-  current_balance: number
-  timestap: number
-}
+  type: string;
+  value: number;
+  current_balance: number;
+  timestamp: number;
+};
+
+
 
 function Pag5() {
-  const[userData, setUserData] = useState<entrada_API | null>(null);
+  const [userData, setUserData] = useState<entrada_API | null>(null);
+  const [userHistory, setUserHistory] = useState<history[] | null>(null);
 
-    async function getDados(api: string): Promise<entrada_API> {
-      const response = await fetch(api);
-      console.log(response)
-      return (await response.json()) as entrada_API;
-    }
+  async function getDados(api: string): Promise<entrada_API> {
+    const response = await fetch(api);
+    console.log(response);
+    return (await response.json()) as entrada_API;
+  }
 
-    async function getHistory(api: string): Promise<history> {
-      const response1 = await fetch(api);
-        return (await response1.json()) as history; 
-      console.log(response1);
-    }
+  async function getHistory(api: string): Promise<history[]> {
+    const response1 = await axios.get(api);
+    console.log("request get history", response1.data);
+    return response1.data;
+  }
 
-  useState(() => {
-    const apiUrl = API;
-  getHistory(apiUrl).then((data) => setUserHistory(data));
-  },);
+  async function fetchHistory() {
+    let apiUrl = API + "history";
+    let allhistory = await getHistory(apiUrl);
+    console.log("all transactions", allhistory.all_transactions);
+    setUserHistory(allhistory.all_transactions);
+  }
 
   useEffect(() => {
-    const apiUrl =
-      API;
-  getDados(apiUrl).then((data) => setUserData(data));
+    let apiUrl = API;
+    getDados(apiUrl).then((data) => setUserData(data));
+    fetchHistory();
   }, []);
-
-  const [userHistory, setUserHistory] = useState<history | null>(null);
-
-
-
+  
   return (
     <main>
       <section className="titulop2">
@@ -64,16 +66,18 @@ function Pag5() {
         <h1>Histórico de Transações</h1>
       </section>
       <section className="posts">
-        <p>
-          <div>{userHistory?.type}</div>
-          <h2>dsadaaadadsdaadasddasdadadada</h2>
-        </p>
+        {userHistory != undefined &&
+          userHistory.map((transaction, index) => (
+            <div key={index}>
+              <h1>Tipo de transação: {transaction.type} / Conta: {transaction.current_balance} / Horário: {transaction.timestamp}</h1>
+            </div>
+          ))}
       </section>
       <section className="posts">
-        <p>
+        <div>
           <div>saque</div>
           <h2>dsadaaadadsdaadasddasdadadada</h2>
-        </p>
+        </div>
       </section>
       <Link to="/telainicial">
         <button id="voltar">Voltar</button>
