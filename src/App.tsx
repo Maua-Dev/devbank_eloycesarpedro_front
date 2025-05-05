@@ -24,3 +24,4 @@ export default function App() {
 
 //Avaliem com bondade no coração <3 
 // Ass: Cesar, Eloy e Pedro
+// obrigado Giulia, Sakas e Tokuji :3 S2
