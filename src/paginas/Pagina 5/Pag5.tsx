@@ -1,7 +1,7 @@
 import "./Pag5.css";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import logo from "/imagens/logo.png";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { API } from "../Pagina2/Pag2";
 import axios from "axios";
 

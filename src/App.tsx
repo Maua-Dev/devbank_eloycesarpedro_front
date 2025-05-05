@@ -22,3 +22,6 @@ export default function App() {
     </BrowserRouter>
   );
 }
+
+//Avaliem com bondade no coração <3 
+// Ass: Cesar, Eloy e Pedro

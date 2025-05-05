@@ -1,8 +1,10 @@
 import './Pag44.css';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 import logo from "/imagens/logo.png";
-import {Link} from 'react-router-dom'; 
-import {API} from '../Pagina2/Pag2';
+import { Link } from "react-router-dom";
+import { API } from "../Pagina2/Pag2";
+import axios from "axios";
+import { apiUrl1 } from "../../dadosAPI";
 
 type entrada_API = {
   name: string;
@@ -23,49 +25,72 @@ type numero_notas = {
 
 
 function Pag4() {
+  const [userData, setUserData] = useState<entrada_API | null>(null);
+  const [click, setClick] = useState<boolean>(false);
+  const [numeroNotas, setNumeroNotas] = useState<numero_notas>({
+    2: 0,
+    5: 0,
+    10: 0,
+    20: 0,
+    50: 0,
+    100: 0,
+    200: 0,
+  });
 
-  const[userData, setUserData] = useState<entrada_API | null>(null);
-  const[click, setClick] = useState(0);
-    const [numeroNotas, setNumeroNotas] = useState<numero_notas>({
-      2: 0,
-      5: 0,
-      10: 0,
-      20: 0,
-      50: 0,
-      100: 0,
-      200: 0,
-    });
-
-    async function getDados(api: string): Promise<entrada_API> {
-      const response = await fetch(api);
-      return (await response.json()) as entrada_API;
-    }
+  async function getDados(api: string): Promise<entrada_API> {
+    const response = await fetch(api);
+    return (await response.json()) as entrada_API;
+  }
 
   useEffect(() => {
-    const apiUrl =
-      API;
+    const apiUrl = API;
     getDados(apiUrl).then((data) => setUserData(data));
   }, []);
 
-  function handleClick_mais(nota: keyof numero_notas){
-    setClick(0);
+  function handleClick_mais(nota: keyof numero_notas) {
+    setClick(false);
     setNumeroNotas((prev) => ({
       ...prev,
       [nota]: prev[nota] + 1,
     }));
   }
-  
-  function handleClick_menos(nota: keyof numero_notas){
-    setClick(0);
+
+  function handleClick_menos(nota: keyof numero_notas) {
+    setClick(false);
     setNumeroNotas((prev) => ({
       ...prev,
       [nota]: Math.max(0, prev[nota] - 1),
     }));
   }
-  
-  function calcula_notas(){
-    let total = 2*numeroNotas[2]+5*numeroNotas[5]+10*numeroNotas[10]+20*numeroNotas[20]+50*numeroNotas[50]+100*numeroNotas[100]+200*numeroNotas[200]
+
+  function calcula_notas() {
+    let total =
+      2 * numeroNotas[2] +
+      5 * numeroNotas[5] +
+      10 * numeroNotas[10] +
+      20 * numeroNotas[20] +
+      50 * numeroNotas[50] +
+      100 * numeroNotas[100] +
+      200 * numeroNotas[200];
     return total;
+  }
+
+  //Fazendo a rota Post:
+
+  interface ApiResponse {
+    current_balance: number;
+    timestamp: number;
+  }
+
+  async function postDadosNotas(dados: numero_notas): Promise<ApiResponse> {
+    setClick(true);
+    try {
+      const response = await axios.post<ApiResponse>(apiUrl1, dados);
+      return response.data;
+    } catch (error) {
+      console.log("Erro encontrado");
+      return { current_balance: 0, timestamp: 0 };
+    }
   }
 
   return (
@@ -140,7 +165,7 @@ function Pag4() {
         <Link to="/telainicial">
           <button>Voltar</button>
         </Link>
-        <button onClick={() =>setClick(1)}>Sacar</button>
+        <button onClick={() => postDadosNotas(numeroNotas)}>Sacar</button>
       </section>
     </main>
   );

@@ -1,7 +1,7 @@
 import './Pag33.css';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import logo from "/imagens/logo.png";
-import { BrowserRouter, Routes, Route, Link} from 'react-router-dom'; 
+import {Link} from 'react-router-dom'; 
 import { API } from "../Pagina2/Pag2";
 import axios from "axios";
 import { apiUrl1 } from '../../dadosAPI';
@@ -26,15 +26,15 @@ type numero_notas = {
 
 function Pag3() {
   const[userData, setUserData] = useState<entrada_API | null>(null);
-  const[click, setClick] = useState(0);
+  const[click, setClick] = useState<boolean>(false);
   const [numeroNotas, setNumeroNotas] = useState<numero_notas>({
-    2: 0,
-    5: 0,
-    10: 0,
-    20: 0,
-    50: 0,
-    100: 0,
-    200: 0,
+    "2": 0,
+    "5": 0,
+    "10": 0,
+    "20": 0,
+    "50": 0,
+    "100": 0,
+    "200": 0,
   });
   
   async function getDados(api: string): Promise<entrada_API> {
@@ -50,7 +50,7 @@ function Pag3() {
 
 // Lógica do incremento do número de notas
 function handleClick_mais(nota: keyof numero_notas){
-  setClick(0);
+  setClick(false);
   setNumeroNotas((prev) => ({
     ...prev,
     [nota]: prev[nota] + 1,
@@ -59,7 +59,7 @@ function handleClick_mais(nota: keyof numero_notas){
 
 // Lógica do decremento do número de notas
 function handleClick_menos(nota: keyof numero_notas){
-  setClick(0);
+  setClick(false);
   setNumeroNotas((prev) => ({
     ...prev,
     [nota]: Math.max(0, prev[nota] - 1),
@@ -78,7 +78,9 @@ interface ApiResponse{
   "timestamp": number 
 }
 
+
 async function postDadosNotas(dados:numero_notas): Promise<ApiResponse> {
+  setClick(true)
   try{
     const response = await axios.post<ApiResponse>(apiUrl1, dados);
     return response.data;
@@ -87,7 +89,6 @@ async function postDadosNotas(dados:numero_notas): Promise<ApiResponse> {
     return { current_balance: 0, timestamp: 0 }
   }
 }
-
 
   return (
     <main>
@@ -161,7 +162,7 @@ async function postDadosNotas(dados:numero_notas): Promise<ApiResponse> {
         <Link to="/telainicial">
           <button>Voltar</button>
         </Link>
-        <button onClick={() =>setClick(1)}>Depositar</button>
+        <button onClick={() =>postDadosNotas(numeroNotas)}>Depositar</button>
       </section>
     </main>
   );

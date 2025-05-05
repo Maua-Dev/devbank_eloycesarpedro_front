@@ -1,5 +1,5 @@
 import "./Pag22.css";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import logo from "/imagens/logo.png";
 import { Link } from "react-router-dom";
 

@@ -1,4 +1,4 @@
-import Pag1 from "./paginas/Pagina1/Pag1";
+
 
 export let apiUrl1 = localStorage.getItem("apiUrl1") || "";
 
