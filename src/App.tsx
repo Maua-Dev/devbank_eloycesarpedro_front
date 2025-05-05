@@ -1,4 +1,3 @@
-import React, {useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route} from 'react-router-dom'; 
 
 import Pag1 from './paginas/Pagina1/Pag1';
