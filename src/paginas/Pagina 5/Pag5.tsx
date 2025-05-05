@@ -19,8 +19,6 @@ type history = {
   timestamp: number;
 };
 
-
-
 function Pag5() {
   const [userData, setUserData] = useState<entrada_API | null>(null);
   const [userHistory, setUserHistory] = useState<history[] | null>(null);
@@ -49,7 +47,7 @@ function Pag5() {
     getDados(apiUrl).then((data) => setUserData(data));
     fetchHistory();
   }, []);
-  
+
   return (
     <main>
       <section className="titulop2">
@@ -69,7 +67,10 @@ function Pag5() {
         {userHistory != undefined &&
           userHistory.map((transaction, index) => (
             <div key={index}>
-              <h1>Tipo de transação: {transaction.type} / Conta: {transaction.current_balance} / Horário: {transaction.timestamp}</h1>
+              <h1>
+                Tipo de transação: {transaction.type} / Conta: {" "}
+                {transaction.current_balance} / Horário: {transaction.timestamp}
+              </h1>
             </div>
           ))}
       </section>
