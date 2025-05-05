@@ -19,9 +19,19 @@ type history = {
   timestamp: number;
 };
 
+type responseHistory = {
+  all_transactions: history[];
+};
+
 function Pag5() {
   const [userData, setUserData] = useState<entrada_API | null>(null);
   const [userHistory, setUserHistory] = useState<history[] | null>(null);
+  const formdate = (timestamp: number) => {
+    let date = new Date(timestamp);
+    return (
+      date.toLocaleDateString("pt-Br") + "  " + date.toLocaleTimeString("pt-Br")
+    );
+  };
 
   async function getDados(api: string): Promise<entrada_API> {
     const response = await fetch(api);
@@ -29,7 +39,7 @@ function Pag5() {
     return (await response.json()) as entrada_API;
   }
 
-  async function getHistory(api: string): Promise<history[]> {
+  async function getHistory(api: string): Promise<responseHistory> {
     const response1 = await axios.get(api);
     console.log("request get history", response1.data);
     return response1.data;
@@ -63,22 +73,17 @@ function Pag5() {
       <section className="historico">
         <h1>Histórico de Transações</h1>
       </section>
-      <section className="posts">
+      <section>
         {userHistory != undefined &&
           userHistory.map((transaction, index) => (
             <div key={index}>
-              <h1>
-                Tipo de transação: {transaction.type} / Conta: {" "}
-                {transaction.current_balance} / Horário: {transaction.timestamp}
-              </h1>
+              <section className="posts">
+                <h1>Tipo de transação: {transaction.type} </h1>
+                <h2>Saldo da conta: R$ {transaction.current_balance} </h2>
+                <h2>Data: {formdate(transaction.timestamp)}</h2>
+              </section>
             </div>
           ))}
-      </section>
-      <section className="posts">
-        <div>
-          <div>saque</div>
-          <h2>dsadaaadadsdaadasddasdadadada</h2>
-        </div>
       </section>
       <Link to="/telainicial">
         <button id="voltar">Voltar</button>
