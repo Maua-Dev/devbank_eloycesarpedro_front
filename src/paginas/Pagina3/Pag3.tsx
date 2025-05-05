@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react';
 import logo from "/imagens/logo.png";
 import { BrowserRouter, Routes, Route, Link} from 'react-router-dom'; 
 import { API } from "../Pagina2/Pag2";
+import axios from "axios";
+import { apiUrl1 } from '../../dadosAPI';
 
 type entrada_API = {
   name: string;
@@ -46,6 +48,7 @@ function Pag3() {
   }, []);
 
 
+// Lógica do incremento do número de notas
 function handleClick_mais(nota: keyof numero_notas){
   setClick(0);
   setNumeroNotas((prev) => ({
@@ -54,6 +57,7 @@ function handleClick_mais(nota: keyof numero_notas){
   }));
 }
 
+// Lógica do decremento do número de notas
 function handleClick_menos(nota: keyof numero_notas){
   setClick(0);
   setNumeroNotas((prev) => ({
@@ -66,6 +70,25 @@ function calcula_notas(){
   let total = 2*numeroNotas[2]+5*numeroNotas[5]+10*numeroNotas[10]+20*numeroNotas[20]+50*numeroNotas[50]+100*numeroNotas[100]+200*numeroNotas[200]
   return total;
 }
+
+//Fazendo a rota Post:
+
+interface ApiResponse{
+  "current_balance": number,
+  "timestamp": number 
+}
+
+async function postDadosNotas(dados:numero_notas): Promise<ApiResponse> {
+  try{
+    const response = await axios.post<ApiResponse>(apiUrl1, dados);
+    return response.data;
+  }catch(error){
+    console.log("Erro encontrado")
+    return { current_balance: 0, timestamp: 0 }
+  }
+}
+
+
   return (
     <main>
       <Link to="/telainicial" className="deposito"></Link>
